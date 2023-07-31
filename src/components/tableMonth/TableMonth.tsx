@@ -5,7 +5,7 @@ const TableMonth = () => {
   return (
     <div className="grid grid-cols-7 w-[1180px] mt-4">
       {numDays.map((item) => (
-        <div key={item} className="dark:text-white text-black border-2 dark:border-white border-black h-32 p-2 hover:-translate-y-1 dark:hover:shadow-shadow-calendar-days-hover">
+        <div key={item} className="dark:text-white text-black border-2 dark:border-white border-black h-32 p-2 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-calendar-days-hover">
           {item}
         </div>
       ))}
