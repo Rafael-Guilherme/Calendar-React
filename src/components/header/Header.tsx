@@ -1,21 +1,30 @@
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import CalendarButton from "../calendarButton/CalendarButton"
 
 const Header = () => {
+
+    const currentMonth = format(new Date(), 'MMMM', { locale: ptBR })
+    const currentMonthCapitalized = capitalizeFirstLetter(currentMonth)
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className="w-full">
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="text-xl dark:text-white">Calendário</h1>
-                    <h2 className="text-xl font-bold dark:text-white">Julho 2023</h2>
+                    <h2 className="text-xl font-bold dark:text-white">{currentMonthCapitalized} - {currentYear}</h2>
                 </div>
                 <div className="flex">
-                    <button className="dark:text-white text-black dark:border-white border-2 border-black font-semibold w-28 h-10 rounded-xl mr-4 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-buttons">Editar</button>
-                    <button className="dark:text-white text-black dark:border-white border-2 border-black font-semibold w-28 h-10 rounded-xl mr-4 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-buttons">Adicionar</button>
+                    <CalendarButton styles="w-28" text="Editar" />
+                    <CalendarButton styles="w-28" text="Adicionar" />
                 </div>
             </div>
             <div className="flex items-center justify-end mt-4">
-                <button className="dark:text-white text-black dark:border-white border-2 border-black font-semibold w-32 h-10 rounded-xl mr-4 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-buttons">filtro do mês</button>
-                <button className="dark:text-white text-black dark:border-white border-2 border-black font-semibold w-28 h-10 rounded-xl mr-4 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-buttons">filtro do ano</button>
-                <button className="dark:text-white text-black dark:border-white border-2 border-black font-semibold w-28 h-10 rounded-xl mr-4 hover:-translate-y-1 hover:shadow-shadow-light-calendar dark:hover:shadow-shadow-buttons">View</button>
+                <CalendarButton styles="w-32" text="Filtro do mês" />
+                <CalendarButton styles="w-28" text="Filtro do ano" />
+                <CalendarButton styles="w-28" text="View" />
             </div>
         </div>
     )

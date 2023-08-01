@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs"
 
 
-const Button = () => {
+const ButtonTheme = () => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
 
     useEffect(() => {
@@ -38,4 +38,4 @@ const Button = () => {
     )
 }
 
-export default Button
+export default ButtonTheme
